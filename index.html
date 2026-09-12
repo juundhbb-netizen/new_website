@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Habib's Test Site</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111827;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .signup-box {
+            background: #1f2937;
+            padding: 30px;
+            width: 320px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 8px;
+            background: #374151;
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #3b82f6;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-box">
+        <h1>Sign Up</h1>
+
+        <input type="text" id="username" placeholder="Username">
+
+        <input type="email" id="email" placeholder="Email">
+
+        <input type="password" id="password" placeholder="Password">
+
+        <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+        <button onclick="signup()">Create Account</button>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function signup() {
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            let message = document.getElementById("message");
+
+            if (username === "" || email === "" || password === "") {
+                message.innerText = "Please fill in everything!";
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                message.innerText = "Passwords do not match!";
+                return;
+            }
+
+            message.innerText = "🎉 Account created successfully!";
+        }
+    </script>
+
+</body>
+</html>
